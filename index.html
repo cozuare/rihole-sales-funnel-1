@@ -38,7 +38,7 @@ CONFIGURACIÓN TÉCNICA ADICIONAL:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RIHOLÉ — Funnel Completo (Paso 1, 2, 3)</title>
+<title>RIHOLÉ · Funnel Completo (Paso 1, 2, 3)</title>
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&display=swap');
@@ -66,6 +66,8 @@ body{
   overflow-x:hidden;
 }
 [data-lang="en"] [data-es], [data-lang="es"] [data-en]{display:none;}
+[data-lang="es"] .eyebrow[data-es],
+[data-lang="en"] .eyebrow[data-en]{display:block;}
 .serif{font-family:'Cormorant Garamond',serif;}
 .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
 .eyebrow{
@@ -101,7 +103,7 @@ img{display:block;width:100%;height:auto;}
   padding:64px 28px 32px;text-align:center;
   background:radial-gradient(ellipse at 50% 0%, rgba(224,27,52,0.16), transparent 60%);
 }
-.hook .eyebrow{display:block;margin-bottom:18px;}
+.hook .eyebrow{margin-bottom:18px;}
 .hook h1{
   font-family:'Cormorant Garamond',serif;font-weight:600;
   font-size:clamp(34px,5.4vw,66px);line-height:1.06;max-width:920px;margin:0 auto;letter-spacing:-.01em;
@@ -185,18 +187,27 @@ img{display:block;width:100%;height:auto;}
   font-size:15px;color:var(--gold-soft);font-style:italic;
 }
 
-/* ===== CREDIBILITY STRIP ===== */
+/* ===== CREDIBILITY ===== */
 .credibility{
-  padding:48px 28px;background:var(--black-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:80px 28px;background:var(--black-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
 }
-.cred-article{max-width:760px;margin:0 auto;overflow:hidden;}
-.cred-photo-float{
-  float:left;width:280px;margin:4px 32px 16px 0;border:1px solid var(--line);
+.cred-grid{
+  display:grid;grid-template-columns:0.6fr 1.4fr;gap:48px;align-items:center;max-width:1080px;margin:0 auto;
 }
-.cred-article > .eyebrow{display:block;margin-bottom:12px;}
-.cred-article > p{color:var(--off);font-size:15.5px;margin-bottom:10px;}
-.cred-full{clear:both;margin-top:14px;padding-top:22px;border-top:1px solid var(--line);}
-.cred-full p{color:var(--off);font-size:15.5px;margin-bottom:10px;}
+.cred-photo{
+  max-width:340px;width:100%;height:520px;border:1px solid var(--line);position:relative;
+  overflow:hidden;
+}
+.cred-photo img{
+  width:100%;height:100%;object-fit:cover;object-position:center 18%;
+  transform:scale(1.18);transform-origin:center 22%;
+}
+.credibility .eyebrow{margin-bottom:12px;}
+.credibility h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.6vw,42px);font-weight:600;margin-bottom:20px;line-height:1.12;}
+.credibility p{color:var(--off);font-size:16.5px;margin-bottom:16px;}
+.cred-closing{
+  margin-top:26px;padding-top:22px;border-top:1px solid var(--line);
+}
 
 /* ===== VALUE STACK ===== */
 .stack{padding:80px 28px;}
@@ -207,8 +218,9 @@ img{display:block;width:100%;height:auto;}
   display:flex;justify-content:space-between;align-items:flex-start;gap:24px;
   padding:24px 0;border-bottom:1px solid var(--line);
 }
+.stack-item > div{flex:1;min-width:0;width:100%;}
 .stack-item h4{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin-bottom:6px;}
-.stack-item p{color:var(--dim);font-size:14.5px;max-width:480px;}
+.stack-item p{color:var(--dim);font-size:14.5px;max-width:none;}
 .stack-item .val{color:var(--gold);font-weight:700;font-size:15px;white-space:nowrap;padding-top:4px;}
 .stack-total{
   display:flex;justify-content:space-between;align-items:center;max-width:760px;margin:26px auto 0;
@@ -222,14 +234,15 @@ img{display:block;width:100%;height:auto;}
 .trecena-head{text-align:center;max-width:640px;margin:0 auto 50px;}
 .trecena-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.6vw,42px);font-weight:600;}
 .trecena-track{
-  display:flex;overflow-x:auto;gap:0;max-width:1080px;margin:0 auto;padding-bottom:14px;
-  scrollbar-width:thin;
+  display:flex;justify-content:center;align-items:flex-start;gap:0;
+  max-width:720px;margin:0 auto;padding-bottom:14px;
 }
 .tday{
-  flex:0 0 auto;width:150px;text-align:center;padding:0 14px;position:relative;
+  flex:1;max-width:220px;text-align:center;padding:0 16px;position:relative;
 }
 .tday:not(:last-child)::after{
-  content:"";position:absolute;top:22px;right:-2px;width:100%;height:1px;background:var(--line);
+  content:"";position:absolute;top:22px;left:50%;width:100%;height:1px;
+  background:var(--line);z-index:1;pointer-events:none;
 }
 .tnum{
   width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);
@@ -278,6 +291,17 @@ img{display:block;width:100%;height:auto;}
 .plan-info .tag{color:var(--dim);font-size:13px;margin-bottom:16px;}
 .plan-info .price{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;color:var(--gold);margin-bottom:4px;}
 .plan-info .price sup{font-size:16px;top:-14px;position:relative;}
+.plan-info .price .was{
+  position:relative;display:inline-block;font-size:20px;color:var(--dim);
+  font-family:'Inter',sans-serif;font-weight:500;margin-right:12px;vertical-align:middle;
+  text-decoration:none;
+}
+.plan-info .price .was::after{
+  content:"";position:absolute;left:-14%;right:-14%;top:40%;height:1.5px;
+  background:var(--gold);transform:rotate(-38deg);transform-origin:center;
+  pointer-events:none;
+}
+.plan-info .price .was sup{font-size:11px;top:-6px;}
 .plan-info ul{list-style:none;text-align:left;margin:16px 0 22px;}
 .plan-info li{position:relative;padding-left:22px;margin-bottom:10px;font-size:14px;color:var(--off);}
 .plan-info li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700;}
@@ -329,9 +353,9 @@ footer .logo{display:block;margin-bottom:10px;}
 footer p{color:var(--dim);font-size:12.5px;}
 
 @media(max-width:820px){
-  .pain-grid, .story-grid{grid-template-columns:1fr;gap:32px;}
-  .cred-photo-float{float:none;width:100%;max-width:320px;margin:0 auto 20px;display:block;}
-  .story-grid{direction:ltr;}
+  .pain-grid, .story-grid, .cred-grid{grid-template-columns:1fr;gap:32px;}
+  .story-grid, .cred-grid{direction:ltr;}
+  .cred-photo{height:420px;max-width:320px;margin:0 auto;}
 }
 
 
@@ -345,7 +369,7 @@ footer p{color:var(--dim);font-size:12.5px;}
 
 /* ===== GRACIAS ===== */
 .s2-gracias{padding:70px 28px 50px;text-align:center;background:radial-gradient(ellipse at 50% 0%, rgba(224,27,52,0.14), transparent 60%);}
-.s2-gracias .eyebrow{display:block;margin-bottom:18px;}
+.s2-gracias .eyebrow{margin-bottom:18px;}
 .s2-gracias h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(30px,5vw,48px);line-height:1.12;max-width:600px;margin:0 auto;}
 .s2-gracias h1 em{font-style:italic;color:var(--gold);font-weight:500;}
 .s2-gracias .sub{max-width:480px;margin:20px auto 0;color:var(--off);font-size:16.5px;}
@@ -375,7 +399,7 @@ footer p{color:var(--dim);font-size:12.5px;}
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800&display=swap');
 
 .s3-main{padding:70px 28px 80px;text-align:center;background:radial-gradient(ellipse at 50% 0%, rgba(227,183,78,0.14), transparent 60%);}
-.s3-main .eyebrow{display:block;margin-bottom:18px;}
+.s3-main .eyebrow{margin-bottom:18px;}
 .s3-main h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(28px,4.6vw,42px);line-height:1.18;max-width:560px;margin:0 auto;}
 .s3-main .sub{max-width:500px;margin:20px auto 0;color:var(--off);font-size:16.5px;}
 
@@ -421,25 +445,9 @@ footer p{color:var(--dim);font-size:12.5px;}
   <span class="eyebrow" data-en>Practical Guide · 13 Days · Cacao Circle</span>
   <h1 data-es>Diriges tu imperio con una mano y sostienes tu vida con la otra. <em>Esta mañana, deja que el cacao te abrace, te sostenga a ti.</em></h1>
   <h1 data-en>You run your empire with one hand and hold your life together with the other. <em>This morning, let cacao embrace you, hold you.</em></h1>
-  <p class="sub" data-es>Un ritual de 13 mañanas para recuperar tu energía, tu claridad mental y tu buen humor — antes de que el agotamiento se instale y te invada de emociones que no son tuyas.</p>
-  <p class="sub" data-en>A 13-morning ritual to recover your energy, mental clarity, and good mood — before exhaustion settles in and fills you with emotions that were never yours to carry.</p>
+  <p class="sub" data-es>Un ritual de 13 mañanas para recuperar tu energía, tu claridad mental y tu buen humor, antes de que el agotamiento se instale y te invada de emociones que no son tuyas.</p>
+  <p class="sub" data-en>A 13-morning ritual to recover your energy, mental clarity, and good mood, before exhaustion settles in and fills you with emotions that were never yours to carry.</p>
 </section>
-
-<div class="hero-photo">
-  <span class="corner" data-es>RIHOLÉ · EDICIÓN TRECENA</span>
-  <span class="corner" data-en>RIHOLÉ · TRECENA EDITION</span>
-  <img src="assets/hero.jpg" alt="Virginia Buika · RIHOLÉ">
-</div>
-
-<div class="hero-cta-block">
-  <div class="price-pill" data-es>Guía digital desde <b>13€</b> · Entrega inmediata</div>
-  <div class="price-pill" data-en>Digital guide from <b>€13</b> · Instant delivery</div>
-  <br>
-  <a href="#pricing" class="btn" data-es>Quiero mi Guía Sagrada RIHOLÉ →</a>
-  <a href="#pricing" class="btn" data-en>I Want My RIHOLÉ Sacred Guide →</a>
-  <span class="microcopy" data-es>Descarga en PDF · Español, Inglés o ambos · Garantía de 13 días</span>
-  <span class="microcopy" data-en>PDF download · Spanish, English, or both · 13-Day Guarantee</span>
-</div>
 
 <!-- PAIN / RECOGNITION -->
 <section class="pain">
@@ -449,17 +457,17 @@ footer p{color:var(--dim);font-size:12.5px;}
       <h2 data-en>You recognize this:</h2>
       <ul>
         <li data-es>Facturas más que nunca y aun así parece que te cuesta llegar a fin de mes, y llegas cada día a las 9pm exhausta, sin nada que dar.</li>
-        <li data-en>You're earning more than ever and yet somehow it feels hard to make it to month's end — you arrive every day at 9pm exhausted, with nothing left to give.</li>
+        <li data-en>You're earning more than ever and yet somehow it feels hard to make it to month's end: you arrive every day at 9pm exhausted, with nothing left to give.</li>
         <li data-es>Cada "vampiro de energía" a tu alrededor sabe exactamente cuándo pedirte algo.</li>
         <li data-en>Every energy-drainer around you somehow knows exactly when to ask you for more.</li>
         <li data-es>Tu cuerpo lleva meses pidiendo una pausa que tu agenda no permite.</li>
         <li data-en>Your body has been asking for a pause your calendar won't allow.</li>
-        <li data-es>Estás agotada, no perdida — y nadie se ha percatado de ofrecerte un ritual pensado realmente solo en ti, para que vuelvas a ti.</li>
-        <li data-en>You're depleted, not lost — and no one has noticed to offer you a ritual truly thought for you, so you could come back to yourself.</li>
-        <li data-es>Sabes cuidar de todos los que amas — pero, sin darte cuenta, te dejas la última en la lista.</li>
-        <li data-en>You know how to care for everyone you love — but somehow, without meaning to, you end up last on the list.</li>
-        <li data-es>Si estás atravesando un duelo, una pérdida, o sientes cargas que no te pertenecen — este es tu momento para soltarlas.</li>
-        <li data-en>If you're moving through grief, a loss, or carrying weight that was never yours to hold — this is your moment to release it.</li>
+        <li data-es>Estás agotada, no perdida, y nadie se ha percatado de ofrecerte un ritual pensado realmente solo en ti, para que vuelvas a ti.</li>
+        <li data-en>You're depleted, not lost, and no one has noticed to offer you a ritual truly thought for you, so you could come back to yourself.</li>
+        <li data-es>Sabes cuidar de todos los que amas, pero, sin darte cuenta, te dejas la última en la lista.</li>
+        <li data-en>You know how to care for everyone you love, but somehow, without meaning to, you end up last on the list.</li>
+        <li data-es>Si estás atravesando un duelo, una pérdida, o sientes cargas que no te pertenecen: este es tu momento para soltarlas.</li>
+        <li data-en>If you're moving through grief, a loss, or carrying weight that was never yours to hold: this is your moment to release it.</li>
       </ul>
     </div>
     <div class="flip">
@@ -467,17 +475,32 @@ footer p{color:var(--dim);font-size:12.5px;}
       <h3 data-en>What you release with RIHOLÉ:</h3>
       <ul>
         <li data-es>13 días de tomas de cacao, tu ritual diseñado para mujeres como tú que crean y lideran (equipos, familia, trabajo, grupos, y más).</li>
-        <li data-en>13 days of cacao ritual — your ritual, designed for women like you who create and lead (teams, family, work, groups, and more).</li>
-        <li data-es>Un espacio de 13 minutos que es solo para ti — sin reuniones, sin llamadas, sin móviles, sin remordimientos.</li>
-        <li data-en>A 13-minute space that belongs only to you — no meetings, no calls, no phones, no guilt.</li>
+        <li data-en>13 days of cacao ritual: your ritual, designed for women like you who create and lead (teams, family, work, groups, and more).</li>
+        <li data-es>Un espacio de 13 minutos que es solo para ti: sin reuniones, sin llamadas, sin móviles, sin remordimientos.</li>
+        <li data-en>A 13-minute space that belongs only to you: no meetings, no calls, no phones, no guilt.</li>
         <li data-es>Una práctica. Hazla tuya, aquí, con tu propio círculo, tu método.</li>
         <li data-en>A practice. Make it yours, here, with your own circle, your own method.</li>
-        <li data-es>Sueltas las emociones que no te pertenecen, para abrazar las que brotan y ya habitan dentro de tu corazón — las que sí son tuyas: tu amor, tu alegría, tu paz, tu serenidad.</li>
-        <li data-en>You release the emotions that were never yours to hold, to embrace the ones that rise and already live in your heart — the ones that truly are yours: your love, your joy, your peace, your serenity.</li>
-        <li data-es>Sigues aprendiendo a cuidarte, mimarte y respetarte — a amarte a ti primero, para poder seguir amando, cuidando y respetando lo que más amas, a quienes más amas y a todos los demás que se crucen en tu camino.</li>
-        <li data-en>You keep learning to care for yourself, cherish yourself, and respect yourself — to love yourself first, so you can keep loving, caring for, and respecting what you love most, those you love most, and everyone else who crosses your path.</li>
+        <li data-es>Sueltas las emociones que no te pertenecen, para abrazar las que brotan y ya habitan dentro de tu corazón: las que sí son tuyas: tu amor, tu alegría, tu paz, tu serenidad.</li>
+        <li data-en>You release the emotions that were never yours to hold, to embrace the ones that rise and already live in your heart: the ones that truly are yours: your love, your joy, your peace, your serenity.</li>
+        <li data-es>Sigues aprendiendo a cuidarte, mimarte y respetarte: a amarte a ti primero, para poder seguir amando, cuidando y respetando lo que más amas, a quienes más amas y a todos los demás que se crucen en tu camino.</li>
+        <li data-en>You keep learning to care for yourself, cherish yourself, and respect yourself: to love yourself first, so you can keep loving, caring for, and respecting what you love most, those you love most, and everyone else who crosses your path.</li>
       </ul>
     </div>
+  </div>
+  <div class="hero-photo">
+    <span class="corner" data-es>RIHOLÉ · EDICIÓN TRECENA</span>
+    <span class="corner" data-en>RIHOLÉ · TRECENA EDITION</span>
+    <img src="assets/hero.jpg" alt="Virginia Buika · RIHOLÉ">
+  </div>
+  
+  <div class="hero-cta-block">
+    <div class="price-pill" data-es>Guía digital desde <b>13€</b> · Entrega inmediata</div>
+    <div class="price-pill" data-en>Digital guide from <b>€13</b> · Instant delivery</div>
+    <br>
+    <a href="#pricing" class="btn" data-es>Quiero mi Guía Sagrada RIHOLÉ →</a>
+    <a href="#pricing" class="btn" data-en>I Want My RIHOLÉ Sacred Guide →</a>
+    <span class="microcopy" data-es>Descarga en PDF · Español, Inglés o ambos · Garantía de 13 días</span>
+    <span class="microcopy" data-en>PDF download · Spanish, English, or both · 13-Day Guarantee</span>
   </div>
 </section>
 
@@ -492,14 +515,14 @@ footer p{color:var(--dim);font-size:12.5px;}
       <span class="eyebrow" data-en>The founder</span>
       <h2 data-es>No creé RIHOLÉ desde la teoría. La creé desde mis cimientos, desde cero.</h2>
       <h2 data-en>I didn't build RIHOLÉ from theory. I built it from my foundations, from zero.</h2>
-      <p data-es>Virginia Buika ha construido marcas, subido a numerosos escenarios internacionales y actuado ante miles de personas, impulsando su trabajo humanitario a través de su Movimiento CozUare — Movimiento de Transformación Humanitaria, cuyos valores han sido reconocidos por la UNESCO. Irina Bokova (ex Directora General de la UNESCO), Quincy Jones, Patti Austin, Michael Bolton y Federico Mayor Zaragoza (ex Director General de la UNESCO) son algunos de los nombres con los que se ha reunido personalmente Virginia Buika como Embajadora de CozUare, junto a una larga lista de embajadores, ministros y presidentes internacionales de diferentes organizaciones y empresas — una auténtica influencer que teje en silencio, más allá de las redes sociales, con un compromiso auténtico de responsabilidad social como soloemprendedora. Y aun así, sin dejar de sentir, en algún punto, que se le pedía elegir entre su alma, su energía y su éxito. RIHOLÉ se potenció al soltar las cargas de esa "falsa moneda".</p>
-      <p data-en>Virginia Buika has built brands, stood on numerous international stages, and performed for thousands, driving her humanitarian work through her CozUare Movement — a Movement of Humanitarian Transformation, whose values have been recognized by UNESCO. Irina Bokova (former Director-General of UNESCO), Quincy Jones, Patti Austin, Michael Bolton, and Federico Mayor Zaragoza (former Director-General of UNESCO) are among the names Virginia Buika has met personally as CozUare's Ambassador, alongside a long list of ambassadors, ministers, and international presidents from different organizations and companies — a true influencer weaving her impact quietly, far beyond social media, with an authentic commitment to social responsibility as a solopreneur. And still, without ever fully escaping the feeling that she had to choose between her soul, her energy, and her success. RIHOLÉ was empowered by releasing the weight of that "false currency".</p>
-      <p data-es>El nombre "RIHOLÉ" — su nombre — significa Amor, en su lengua Bubi (de Guinea Ecuatorial, África Central). Cada ritual de 13 días crea un primer círculo que recorre tres fuerzas: RI — la claridad del océano. HO — el propósito del corazón. LÉ — la abundancia del río.</p>
-      <p data-en>The name "RIHOLÉ" — her name — means Love, in her Bubi heritage (from Equatorial Guinea, Central Africa). Every 13-day ritual creates a first circle that moves through three forces: RI — the clarity of the ocean. HO — the purpose of the heart. LÉ — the abundance of the river.</p>
-      <blockquote data-es>"El cacao abre tu corazón. Te devuelve a ti, para que cada decisión que tomes la hagas desde ese centro — tu corazón — devolviéndote todo tu tiempo, toda tu abundancia."</blockquote>
-      <blockquote data-en>"Cacao opens your heart. It gives you back to yourself, so every decision you make comes from that center — your heart — returning to you all your time, all your abundance."</blockquote>
-      <p class="signature serif" data-es>— Virginia Buika, Fundadora de RIHOLÉ y el Movimiento CozUare</p>
-      <p class="signature serif" data-en>— Virginia Buika, Founder of RIHOLÉ and the CozUare Movement</p>
+      <p data-es>Virginia Buika ha construido marcas, subido a numerosos escenarios internacionales y actuado ante miles de personas, impulsando su trabajo humanitario a través de su Movimiento CozUare, Movimiento de Transformación Humanitaria, cuyos valores han sido reconocidos por la UNESCO. Irina Bokova (ex Directora General de la UNESCO), Quincy Jones, Patti Austin, Michael Bolton y Federico Mayor Zaragoza (ex Director General de la UNESCO) son algunos de los nombres con los que se ha reunido personalmente Virginia Buika como Embajadora de CozUare, junto a una larga lista de embajadores, ministros y presidentes internacionales de diferentes organizaciones y empresas: una auténtica influencer que teje en silencio, más allá de las redes sociales, con un compromiso auténtico de responsabilidad social como soloemprendedora. Y aun así, sin dejar de sentir, en algún punto, que se le pedía elegir entre su alma, su energía y su éxito. RIHOLÉ se potenció al soltar las cargas de esa "falsa moneda".</p>
+      <p data-en>Virginia Buika has built brands, stood on numerous international stages, and performed for thousands, driving her humanitarian work through her CozUare Movement, a Movement of Humanitarian Transformation, whose values have been recognized by UNESCO. Irina Bokova (former Director-General of UNESCO), Quincy Jones, Patti Austin, Michael Bolton, and Federico Mayor Zaragoza (former Director-General of UNESCO) are among the names Virginia Buika has met personally as CozUare's Ambassador, alongside a long list of ambassadors, ministers, and international presidents from different organizations and companies: a true influencer weaving her impact quietly, far beyond social media, with an authentic commitment to social responsibility as a solopreneur. And still, without ever fully escaping the feeling that she had to choose between her soul, her energy, and her success. RIHOLÉ was empowered by releasing the weight of that "false currency".</p>
+      <p data-es>El nombre "RIHOLÉ" (su nombre) significa Amor, en su lengua Bubi (de Guinea Ecuatorial, África Central). Cada ritual de 13 días crea un primer círculo que recorre tres fuerzas: RI: la claridad del océano. HO: el propósito del corazón. LÉ: la abundancia del río.</p>
+      <p data-en>The name "RIHOLÉ" (her name) means Love, in her Bubi heritage (from Equatorial Guinea, Central Africa). Every 13-day ritual creates a first circle that moves through three forces: RI: the clarity of the ocean. HO: the purpose of the heart. LÉ: the abundance of the river.</p>
+      <blockquote data-es>"El cacao abre tu corazón. Te devuelve a ti, para que cada decisión que tomes la hagas desde ese centro (tu corazón), devolviéndote todo tu tiempo, toda tu abundancia."</blockquote>
+      <blockquote data-en>"Cacao opens your heart. It gives you back to yourself, so every decision you make comes from that center (your heart), returning to you all your time, all your abundance."</blockquote>
+      <p class="signature serif" data-es>Virginia Buika, Fundadora de RIHOLÉ y el Movimiento CozUare</p>
+      <p class="signature serif" data-en>Virginia Buika, Founder of RIHOLÉ and the CozUare Movement</p>
       <p class="invite" data-es>Si eres una mente soloemprendedora, te invitamos a descubrir más sobre Virginia Buika y los secretos detrás de cada uno de sus logros como empresaria independiente. Esa sabiduría te aguarda en sus Círculos Love Cacao RIHOLÉ. Empieza hoy.</p>
       <p class="invite" data-en>If you're a solopreneur mind, we invite you to discover more about Virginia Buika and the secrets behind each of her achievements as an independent entrepreneur. That wisdom awaits you in her Love Cacao RIHOLÉ Circles. Begin today.</p>
     </div>
@@ -508,19 +531,25 @@ footer p{color:var(--dim);font-size:12.5px;}
 
 <!-- CREDIBILITY -->
 <section class="credibility">
-  <div class="wrap cred-article">
-    <img src="assets/premios.jpg" alt="Virginia Buika en Premios Iris">
-    <span class="eyebrow" data-es>Una trayectoria artística de una soloemprendedora auténtica</span>
-    <span class="eyebrow" data-en>The artistic career of an authentic solopreneur</span>
-    <p data-es>Académica de la Televisión Española, miembro de la Latin GRAMMY y de NALIP, y miembro elegible de Paramount Pictures, SAG y AFTRA. Ganadora del Premio de la Audiencia a la Mejor Actriz en el Hollywood Film Festival, y nominada a Mejor Cantante Pop Femenina en los Los Angeles Music Awards.</p>
-    <p data-en>Academy Member of Spanish Television, a Latin GRAMMY member, and a NALIP member — and an eligible member of Paramount Pictures, SAG, and AFTRA. Audience Award winner for Best Actress at the Hollywood Film Festival, and nominated for Best Female Pop Artist at the Los Angeles Music Awards.</p>
-    <p data-es>Mejor Película Corta Documental por "Yo Soy el Cambio / I Am The Change", seleccionada en el Festival Internacional de Cine de Málaga, en la sección fuera de concurso "Afirmando los Derechos de la Mujer". Su documental "Nos Quitamos La Venda / Can We Take Off The Blindfold" fue preseleccionado en el Los Angeles Film Festival, con una nominación a Mejor Documental en el Festival de Cine BFF de Birmingham (UK).</p>
-    <p data-en>Best Documentary Short for "Yo Soy el Cambio / I Am The Change," selected at the Malaga International Film Festival in its out-of-competition section "Affirming Women's Rights." Her documentary "Nos Quitamos La Venda / Can We Take Off The Blindfold" was pre-selected at the Los Angeles Film Festival, with a Best Documentary nomination at the BFF Birmingham Film Festival (UK).</p>
-    <div class="cred-full">
-      <p data-es>Como artista, productora, directora, empresaria, oradora y autora, su trabajo se ha visto y escuchado en medios como El País, QUÉ, El Economista, BenTV, MTV, Rai TV, BBC1, BBC2, Tele5, A3Media, Channel4 España y EuropaPress. Su acompañamiento ha llegado a líderes empresariales de élite, celebridades y organizaciones sociales.</p>
-      <p data-en>As an artist, producer, director, entrepreneur, speaker, and author, her work has been seen and heard on outlets including El País, QUÉ, El Economista, BenTV, MTV, Rai TV, BBC1, BBC2, Tele5, A3Media, Channel4 España, and EuropaPress. Her guidance has reached elite business leaders, celebrities, and social organizations.</p>
-      <p data-es>RIHOLÉ no es una tendencia de bienestar. Es un método de una mujer que ha vivido exactamente lo que tú vives — y que sigue eligiendo su energía, en público y en privado.</p>
-      <p data-en>RIHOLÉ isn't a wellness trend. It's a method from a woman who has lived exactly what you're living — and who keeps choosing her energy, in public and in private.</p>
+  <div class="wrap cred-grid">
+    <div class="cred-photo">
+      <img src="assets/premios.jpg" alt="Virginia Buika en Premios Iris">
+    </div>
+    <div>
+      <span class="eyebrow" data-es>Trayectoria</span>
+      <span class="eyebrow" data-en>Career</span>
+      <h2 data-es>Una trayectoria artística de una soloemprendedora auténtica</h2>
+      <h2 data-en>The artistic career of an authentic solopreneur</h2>
+      <p data-es>Académica de la Televisión Española, miembro de la Latin GRAMMY y de NALIP, y miembro elegible de Paramount Pictures, SAG y AFTRA. Ganadora del Premio de la Audiencia a la Mejor Actriz en el Hollywood Film Festival, y nominada a Mejor Cantante Pop Femenina en los Los Angeles Music Awards.</p>
+      <p data-en>Academy Member of Spanish Television, a Latin GRAMMY member, and a NALIP member, and an eligible member of Paramount Pictures, SAG, and AFTRA. Audience Award winner for Best Actress at the Hollywood Film Festival, and nominated for Best Female Pop Artist at the Los Angeles Music Awards.</p>
+      <p data-es>Mejor Película Corta Documental por "Yo Soy el Cambio / I Am The Change", seleccionada en el Festival Internacional de Cine de Málaga, en la sección fuera de concurso "Afirmando los Derechos de la Mujer". Su documental "Nos Quitamos La Venda / Can We Take Off The Blindfold" fue preseleccionado en el Los Angeles Film Festival, con una nominación a Mejor Documental en el Festival de Cine BFF de Birmingham (UK).</p>
+      <p data-en>Best Documentary Short for "Yo Soy el Cambio / I Am The Change," selected at the Malaga International Film Festival in its out-of-competition section "Affirming Women's Rights." Her documentary "Nos Quitamos La Venda / Can We Take Off The Blindfold" was pre-selected at the Los Angeles Film Festival, with a Best Documentary nomination at the BFF Birmingham Film Festival (UK).</p>
+      <div class="cred-closing">
+        <p data-es>Como artista, productora, directora, empresaria, oradora y autora, su trabajo se ha visto y escuchado en medios como El País, QUÉ, El Economista, BenTV, MTV, Rai TV, BBC1, BBC2, Tele5, A3Media, Channel4 España y EuropaPress. Su acompañamiento ha llegado a líderes empresariales de élite, celebridades y organizaciones sociales.</p>
+        <p data-en>As an artist, producer, director, entrepreneur, speaker, and author, her work has been seen and heard on outlets including El País, QUÉ, El Economista, BenTV, MTV, Rai TV, BBC1, BBC2, Tele5, A3Media, Channel4 España, and EuropaPress. Her guidance has reached elite business leaders, celebrities, and social organizations.</p>
+        <p data-es>RIHOLÉ no es una tendencia de bienestar. Es un método de una mujer que ha vivido exactamente lo que tú vives, y que sigue eligiendo su energía, en público y en privado.</p>
+        <p data-en>RIHOLÉ isn't a wellness trend. It's a method from a woman who has lived exactly what you're living, and who keeps choosing her energy, in public and in private.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -535,24 +564,17 @@ footer p{color:var(--dim);font-size:12.5px;}
   </div>
   <div class="stack-list">
     <div class="stack-item">
-      <div><h4 data-es>Guía Sagrada RIHOLÉ — Love Cacao Círculos (PDF)</h4><p data-es>El ritual completo de 13 días, paso a paso — sabiduría ancestral y años de experiencia, listo para empezar hoy mismo, con arraigo desde el corazón.</p>
-      <h4 data-en>RIHOLÉ Sacred Guide — Love Cacao Circles (PDF)</h4><p data-en>The complete 13-day ritual, step by step — ancestral wisdom and years of experience, ready to begin today, rooted from the heart.</p></div>
-      <div class="val" data-es>Valor 47€</div><div class="val" data-en>Value €47</div>
+      <div><h4 data-es>Guía Sagrada RIHOLÉ · Love Cacao Círculos (PDF)</h4><p data-es>El ritual completo de 13 días, paso a paso: sabiduría ancestral y años de experiencia, listo para empezar hoy mismo, con arraigo desde el corazón.</p>
+      <h4 data-en>RIHOLÉ Sacred Guide · Love Cacao Circles (PDF)</h4><p data-en>The complete 13-day ritual, step by step: ancestral wisdom and years of experience, ready to begin today, rooted from the heart.</p></div>
     </div>
     <div class="stack-item">
       <div><h4 data-es>Protocolo diario RI · HO · LÉ</h4><p data-es>Tres claves breves cada día para volver a la claridad, el propósito y la abundancia.</p>
       <h4 data-en>Daily RI · HO · LÉ Protocol</h4><p data-en>Three short daily keys to return to clarity, purpose, and abundance.</p></div>
-      <div class="val" data-es>Valor 27€</div><div class="val" data-en>Value €27</div>
     </div>
     <div class="stack-item">
       <div><h4 data-es>Calendario Trecena imprimible</h4><p data-es>Sigue tu ciclo de 13 días con un mapa visual que puedes marcar cada mañana.</p>
       <h4 data-en>Printable Trecena Calendar</h4><p data-en>Track your 13-day cycle with a visual map you can mark each morning.</p></div>
-      <div class="val" data-es>Valor 17€</div><div class="val" data-en>Value €17</div>
     </div>
-  </div>
-  <div class="stack-total">
-    <span data-es>Valor total</span><span data-en>Total value</span>
-    <span data-es>91€</span><span data-en>€91</span>
   </div>
 </section>
 
@@ -575,25 +597,25 @@ footer p{color:var(--dim);font-size:12.5px;}
 <section class="proof">
   <div class="proof-photo"><img src="assets/group.jpg" alt="Mujeres ejecutivas con la Guía RIHOLÉ"></div>
   <div class="proof-head">
-    <h2 data-es>Mujeres llenas de abundancia protegen su alta vibración — no la dejan al azar.</h2>
-    <h2 data-en>Women full of abundance protect their high vibration — they don't leave it to chance.</h2>
-    <p data-es>Usan la trecena para recuperar y refortalecer sus energías, arraigadas desde el corazón — no es una tendencia pasajera, es un regreso a casa.</p>
-    <p data-en>They use the trecena to recover and re-strengthen their energy, rooted from the heart — not a passing trend, but a way back home.</p>
+    <h2 data-es>Mujeres llenas de abundancia protegen su alta vibración: no la dejan al azar.</h2>
+    <h2 data-en>Women full of abundance protect their high vibration: they don't leave it to chance.</h2>
+    <p data-es>Usan la trecena para recuperar y refortalecer sus energías, arraigadas desde el corazón: no es una tendencia pasajera, es un regreso a casa.</p>
+    <p data-en>They use the trecena to recover and re-strengthen their energy, rooted from the heart: not a passing trend, but a way back home.</p>
   </div>
 </section>
 
 <!-- PRICING -->
 <!-- DIARIO / DIARY — producto añadido al Paso 1 -->
-<section class="pricing" id="diario">
+<!-- <section class="pricing" id="diario">
   <div class="pricing-head">
     <span class="eyebrow" data-es>Companion de la Trecena</span>
     <span class="eyebrow" data-en>Companion to the Trecena</span>
-    <h2 data-es>Diario de una Solopreneur — Las 13 Llaves de Acceso</h2>
-    <h2 data-en>Diary of a Solopreneur — The 13 Keys of Access</h2>
-    <p class="teaser" data-es>Un lugar para dejar constancia de lo que llega en estos 13 días — no solo en intención, sino en abundancia recibida. Agradecimiento, siembra, soltar, transmutación, e inspiración crística en cada página.</p>
-    <p class="teaser" data-en>A place to keep record of what arrives across these 13 days — not only in intention, but in abundance received. Gratitude, sowing, releasing, transmutation, and Christic inspiration on every page.</p>
-    <p data-es>Descarga inmediata en EPUB. Sin suscripción — tuyo para siempre.</p>
-    <p data-en>Instant EPUB download. No subscription — yours forever.</p>
+    <h2 data-es>Diario de una Solopreneur: Las 13 Llaves de Acceso</h2>
+    <h2 data-en>Diary of a Solopreneur: The 13 Keys of Access</h2>
+    <p class="teaser" data-es>Un lugar para dejar constancia de lo que llega en estos 13 días: no solo en intención, sino en abundancia recibida. Agradecimiento, siembra, soltar, transmutación, e inspiración crística en cada página.</p>
+    <p class="teaser" data-en>A place to keep record of what arrives across these 13 days: not only in intention, but in abundance received. Gratitude, sowing, releasing, transmutation, and Christic inspiration on every page.</p>
+    <p data-es>Descarga inmediata en EPUB. Sin suscripción. Tuyo para siempre.</p>
+    <p data-en>Instant EPUB download. No subscription. Yours forever.</p>
   </div>
   <div class="plans">
     <div class="plan-row">
@@ -610,7 +632,7 @@ footer p{color:var(--dim);font-size:12.5px;}
         <a href="https://buy.stripe.com/28EcN59HF4CxfDxftyffy0a" class="btn" data-en>Start my Diary in Spanish</a>
       </div>
       <div class="plan-cover">
-        <img src="assets/cover-es.jpg" alt="RIHOLÉ Diario de una Solopreneur — Español">
+        <img src="assets/cover-es.jpg" alt="RIHOLÉ Diario de una Solopreneur · Español">
       </div>
     </div>
 
@@ -628,27 +650,27 @@ footer p{color:var(--dim);font-size:12.5px;}
         <a href="https://buy.stripe.com/5kQ9AT6vtd930ID5SYffy06" class="btn" data-en>Start my Diary in English</a>
       </div>
       <div class="plan-cover">
-        <img src="assets/cover-es.jpg" alt="RIHOLÉ Diary of a Solopreneur — English">
+        <img src="assets/cover-es.jpg" alt="RIHOLÉ Diary of a Solopreneur · English">
       </div>
     </div>
   </div>
 </section>
-
+-->
 <section class="pricing" id="pricing">
   <div class="pricing-head">
     <span class="eyebrow" data-es>Elige tu edición</span>
     <span class="eyebrow" data-en>Choose your edition</span>
-    <h2 data-es>Por menos de una cena. Trece días de vuelta a ti — a tu plena abundancia.</h2>
-    <h2 data-en>For less than a dinner out. Thirteen days back to yourself — to your full abundance.</h2>
-    <p class="teaser" data-es>Imagina esa primera mañana: el aroma del cacao elevándose antes de que el mundo despierte, la conexión con la semilla, el maíz, la vainilla — toda una preparación que te pertenece solo a ti. Tu ritual empieza en el silencio, antes del primer sorbo… lo que sucede después, solo lo sabrás cuando lo vivas.</p>
-    <p class="teaser" data-en>Picture that first morning: the aroma of cacao rising before the world wakes, the connection with the seed, the corn, the vanilla — an entire preparation that belongs only to you. Your ritual begins in the silence, before the first sip… what happens next, you'll only know once you live it.</p>
-    <p class="chakra" data-es>La semilla sagrada. Ese grano de oro que madura entre tus manos, que se interconecta entre tus dedos, desde tu corazón — apunta la dirección de tu cosecha hacia la recolección de tu abundancia. Solo por hoy, esa es tu única dirección.</p>
-    <p class="chakra" data-en>The sacred seed. That grain of gold ripening between your hands, interweaving between your fingers, from your heart — pointing the direction of your harvest toward the gathering of your abundance. Just for today, that is your only direction.</p>
-    <p data-es>Descarga inmediata en PDF. Sin suscripción — tuya para siempre.</p>
-    <p data-en>Instant PDF download. No subscription — yours forever.</p>
+    <h2 data-es>Por menos de una cena. Trece días de vuelta a ti, a tu plena abundancia.</h2>
+    <h2 data-en>For less than a dinner out. Thirteen days back to yourself, to your full abundance.</h2>
+    <p class="teaser" data-es>Imagina esa primera mañana: el aroma del cacao elevándose antes de que el mundo despierte, la conexión con la semilla, el maíz, la vainilla: toda una preparación que te pertenece solo a ti. Tu ritual empieza en el silencio, antes del primer sorbo… lo que sucede después, solo lo sabrás cuando lo vivas.</p>
+    <p class="teaser" data-en>Picture that first morning: the aroma of cacao rising before the world wakes, the connection with the seed, the corn, the vanilla: an entire preparation that belongs only to you. Your ritual begins in the silence, before the first sip… what happens next, you'll only know once you live it.</p>
+    <p class="chakra" data-es>La semilla sagrada. Ese grano de oro que madura entre tus manos, que se interconecta entre tus dedos, desde tu corazón, apunta la dirección de tu cosecha hacia la recolección de tu abundancia. Solo por hoy, esa es tu única dirección.</p>
+    <p class="chakra" data-en>The sacred seed. That grain of gold ripening between your hands, interweaving between your fingers, from your heart, pointing the direction of your harvest toward the gathering of your abundance. Just for today, that is your only direction.</p>
+    <p data-es>Descarga inmediata en PDF. Sin suscripción. Tuya para siempre.</p>
+    <p data-en>Instant PDF download. No subscription. Yours forever.</p>
   </div>
   <div class="plans">
-    <div class="plan-row">
+    <!-- <div class="plan-row">
       <div class="plan-info">
         <h3 data-es>Edición Español</h3><h3 data-en>Spanish Edition</h3>
         <div class="tag" data-es>Guía completa en español</div><div class="tag" data-en>Full guide in Spanish</div>
@@ -658,20 +680,20 @@ footer p{color:var(--dim);font-size:12.5px;}
           <li data-es>Protocolo diario RI · HO · LÉ</li><li data-en>Daily RI · HO · LÉ protocol</li>
           <li data-es>Calendario Trecena imprimible</li><li data-en>Printable Trecena calendar</li>
         </ul>
-        <!-- 🔴🔴🔴 TÉCNICO: PEGA AQUÍ EL STRIPE PAYMENT LINK DE LA EDICIÓN ESPAÑOL (13€) — reemplaza los 2 PASTE_STRIPE_LINK_ES_HERE de abajo 🔴🔴🔴 -->
+        🔴🔴🔴 TÉCNICO: PEGA AQUÍ EL STRIPE PAYMENT LINK DE LA EDICIÓN ESPAÑOL (13€) — reemplaza los 2 PASTE_STRIPE_LINK_ES_HERE de abajo 🔴🔴🔴 
         <a href="https://buy.stripe.com/9B628rg632up62Xdlqffy00" id="buy-es" class="btn" data-es>Empezar en español</a>
         <a href="https://buy.stripe.com/9B628rg632up62Xdlqffy00 " id="buy-es-en" class="btn" data-en>Start in Spanish</a>
       </div>
       <div class="plan-cover">
-        <img src="assets/cover-es.jpg" alt="RIHOLÉ Guía Práctica — Edición Español">
+        <img src="assets/cover-es.jpg" alt="RIHOLÉ Guía Práctica · Edición Español">
       </div>
-    </div>
+    </div> -->
 
     <div class="plan-row featured">
       <div class="plan-info">
         <h3 data-es>Edición Bilingüe</h3><h3 data-en>Bilingual Edition</h3>
         <div class="tag" data-es>Español + Inglés, un solo PDF</div><div class="tag" data-en>Spanish + English, one PDF</div>
-        <div class="price">17<sup>€</sup></div>
+        <div class="price"><span class="was">17<sup>€</sup></span>13<sup>€</sup></div>
         <ul>
           <li data-es>Todo el contenido en ambos idiomas</li><li data-en>All content in both languages</li>
           <li data-es>Ideal para compartir en equipos y comunidades mixtas</li><li data-en>Ideal for teams and mixed-language communities</li>
@@ -682,13 +704,13 @@ footer p{color:var(--dim);font-size:12.5px;}
         <a href="https://buy.stripe.com/dRmfZhbPN1ql62X4OUffy04" id="buy-bilingual-en" class="btn gold" data-en>I want the bilingual edition</a>
       </div>
       <div class="plan-cover plan-cover-double">
-        <img src="assets/cover-en.jpg" alt="RIHOLÉ Practical Guide — English Edition">
+        <img src="assets/cover-en.jpg" alt="RIHOLÉ Practical Guide · English Edition">
         <span class="plus">+</span>
-        <img src="assets/cover-es.jpg" alt="RIHOLÉ Guía Práctica — Edición Español">
+        <img src="assets/cover-es.jpg" alt="RIHOLÉ Guía Práctica · Edición Español">
       </div>
     </div>
 
-    <div class="plan-row">
+    <!-- <div class="plan-row">
       <div class="plan-info">
         <h3 data-es>Edición Inglés</h3><h3 data-en>English Edition</h3>
         <div class="tag" data-es>Guía completa en inglés</div><div class="tag" data-en>Full guide in English</div>
@@ -698,14 +720,14 @@ footer p{color:var(--dim);font-size:12.5px;}
           <li data-es>Protocolo diario RI · HO · LÉ</li><li data-en>Daily RI · HO · LÉ protocol</li>
           <li data-es>Calendario Trecena imprimible</li><li data-en>Printable Trecena calendar</li>
         </ul>
-        <!-- 🔴🔴🔴 TÉCNICO: PEGA AQUÍ EL STRIPE PAYMENT LINK DE LA EDICIÓN INGLÉS (13€) — reemplaza los 2 PASTE_STRIPE_LINK_EN_HERE de abajo 🔴🔴🔴 -->
+        🔴🔴🔴 TÉCNICO: PEGA AQUÍ EL STRIPE PAYMENT LINK DE LA EDICIÓN INGLÉS (13€) — reemplaza los 2 PASTE_STRIPE_LINK_EN_HERE de abajo 🔴🔴🔴 
         <a href="https://buy.stripe.com/9B614nf1Z2up7711CIffy01" id="buy-en" class="btn" data-es>Start in English</a>
         <a href="https://buy.stripe.com/9B614nf1Z2up7711CIffy01" id="buy-en-en" class="btn" data-en>Start in English</a>
       </div>
       <div class="plan-cover">
-        <img src="assets/cover-en.jpg" alt="RIHOLÉ Practical Guide — English Edition">
+        <img src="assets/cover-en.jpg" alt="RIHOLÉ Practical Guide · English Edition">
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -715,8 +737,8 @@ footer p{color:var(--dim);font-size:12.5px;}
     <div class="seal">13</div>
     <h3 data-es>Garantía del Corazón · 13 Días</h3>
     <h3 data-en>13-Day Heart Guarantee</h3>
-    <p data-es>Completa el círculo. 13 minutos. 13 días. Compromiso. Coraje. Constancia. Preséntate contigo misma las 13 mañanas, o más — la práctica es tu ritual, tu círculo te espera exactamente ahí, desde donde estás, con todo lo que tú eres.</p>
-    <p data-en>Complete the circle. 13 minutes. 13 days. Commitment. Courage. Consistency. Show up for yourself for all 13 mornings, or more — the practice is your ritual, your circle awaits you exactly there, from where you are, with everything you are.</p>
+    <p data-es>Completa el círculo. 13 minutos. 13 días. Compromiso. Coraje. Constancia. Preséntate contigo misma las 13 mañanas, o más: la práctica es tu ritual, tu círculo te espera exactamente ahí, desde donde estás, con todo lo que tú eres.</p>
+    <p data-en>Complete the circle. 13 minutes. 13 days. Commitment. Courage. Consistency. Show up for yourself for all 13 mornings, or more: the practice is your ritual, your circle awaits you exactly there, from where you are, with everything you are.</p>
   </div>
 </section>
 
@@ -727,8 +749,8 @@ footer p{color:var(--dim);font-size:12.5px;}
     <div class="final-inner">
       <h2 data-es>Tu próxima decisión merece una mente con claridad y llena de paz.</h2>
       <h2 data-en>Your next decision deserves a mind with clarity and full of peace.</h2>
-      <p data-es>Empieza tu trecena hoy — 13€ y trece días para volver a ti.</p>
-      <p data-en>Start your trecena today — €13 and thirteen days back to yourself.</p>
+      <p data-es>Empieza tu trecena hoy: 13€ y trece días para volver a ti.</p>
+      <p data-en>Start your trecena today: €13 and thirteen days back to yourself.</p>
       <a href="#pricing" class="btn gold" data-es>Quiero mi Guía Sagrada RIHOLÉ →</a>
       <a href="#pricing" class="btn gold" data-en>I Want My RIHOLÉ Sacred Guide →</a>
     </div>
@@ -757,8 +779,8 @@ footer p{color:var(--dim);font-size:12.5px;}
     <h3 data-es>Cómo empezar hoy mismo</h3>
     <h3 data-en>How to begin today</h3>
     <ol>
-      <li data-es>Abre tu guía y lee el Día 1 esta noche, antes de dormir — así tu mañana ya está lista.</li>
-      <li data-en>Open your guide and read Day 1 tonight, before bed — so your morning is already set.</li>
+      <li data-es>Abre tu guía y lee el Día 1 esta noche, antes de dormir, así tu mañana ya está lista.</li>
+      <li data-en>Open your guide and read Day 1 tonight, before bed, so your morning is already set.</li>
       <li data-es>Mañana, a primera hora, antes del móvil: tu primera toma de cacao.</li>
       <li data-en>Tomorrow, first thing, before your phone: your first cacao ritual.</li>
       <li data-es>13 minutos. Solo tuyos. Sin reuniones, sin remordimientos.</li>
@@ -786,8 +808,8 @@ footer p{color:var(--dim);font-size:12.5px;}
   <span class="eyebrow" data-en>Before you go</span>
   <h1 data-es>Ya completaste tu primer círculo de 13. Tu cuerpo está listo para los 20.</h1>
   <h1 data-en>You've just completed your first circle of 13. Your body is ready for the 20.</h1>
-  <p class="sub" data-es>La Veintena es el segundo círculo — más profundo, más largo, diseñado para quien ya sabe que este ritual no es una moda pasajera, sino parte de ella.</p>
-  <p class="sub" data-en>The Veintena is the second circle — deeper, longer, designed for the woman who already knows this ritual isn't a passing trend, but part of who she is.</p>
+  <p class="sub" data-es>La Veintena es el segundo círculo: más profundo, más largo, diseñado para quien ya sabe que este ritual no es una moda pasajera, sino parte de ella.</p>
+  <p class="sub" data-en>The Veintena is the second circle: deeper, longer, designed for the woman who already knows this ritual isn't a passing trend, but part of who she is.</p>
 
   <div class="s3-video">
     <video autoplay muted loop playsinline controls>
@@ -806,7 +828,7 @@ footer p{color:var(--dim);font-size:12.5px;}
         <a href="https://buy.stripe.com/dRmfZh075b0Vajda9effy05" class="btn" data-en>Continue in Spanish →</a>
       </div>
       <div class="plan-cover">
-        <img src="assets/veintena-cover-es.jpg" alt="RIHOLÉ Veintena — Edición Español">
+        <img src="assets/veintena-cover-es.jpg" alt="RIHOLÉ Veintena · Edición Español">
       </div>
     </div>
 
@@ -821,9 +843,9 @@ footer p{color:var(--dim);font-size:12.5px;}
       </div>
       <div class="plan-cover plan-cover-double">
         <!-- 🔴 NOTA: aquí van la carátula EN + la carátula ES una junto a la otra. Ahora mismo mismo estoy repitiendo la misma carátula en español dos veces porque aún no tengo la carátula en inglés de la Veintena — pásamela y la coloco. 🔴 -->
-        <img src="assets/veintena-cover-es.jpg" alt="RIHOLÉ Veintena — English Edition (placeholder, pending real EN cover)">
+        <img src="assets/veintena-cover-es.jpg" alt="RIHOLÉ Veintena · English Edition (placeholder, pending real EN cover)">
         <span class="plus">+</span>
-        <img src="assets/veintena-cover-es.jpg" alt="RIHOLÉ Veintena — Edición Español">
+        <img src="assets/veintena-cover-es.jpg" alt="RIHOLÉ Veintena · Edición Español">
       </div>
     </div>
 
@@ -838,15 +860,15 @@ footer p{color:var(--dim);font-size:12.5px;}
       </div>
       <div class="plan-cover">
         <!-- 🔴 NOTA: misma carátula española de placeholder — pásame la carátula en inglés de la Veintena cuando la tengas 🔴 -->
-        <img src="assets/veintena-cover-es.jpg" alt="RIHOLÉ Veintena — English Edition (placeholder)">
+        <img src="assets/veintena-cover-es.jpg" alt="RIHOLÉ Veintena · English Edition (placeholder)">
       </div>
     </div>
   </div>
 
-  <span class="s3-skip" data-es onclick="skipUpsell(event)">No, gracias — con mi Trecena tengo suficiente por ahora</span>
-  <span class="s3-skip" data-en onclick="skipUpsell(event)">No thanks — my Trecena is enough for now</span>
-  <p id="s3-closing-note" data-es style="display:none;color:var(--gold-soft);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;margin-top:30px;">Perfecto. Disfruta tu Trecena — con eso ya tienes todo lo que necesitas por ahora. 💛</p>
-  <p id="s3-closing-note" data-en style="display:none;color:var(--gold-soft);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;margin-top:30px;">Perfect. Enjoy your Trecena — that's everything you need for now. 💛</p>
+  <span class="s3-skip" data-es onclick="skipUpsell(event)">No, gracias. Con mi Trecena tengo suficiente por ahora</span>
+  <span class="s3-skip" data-en onclick="skipUpsell(event)">No thanks. My Trecena is enough for now</span>
+  <p id="s3-closing-note" data-es style="display:none;color:var(--gold-soft);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;margin-top:30px;">Perfecto. Disfruta tu Trecena: con eso ya tienes todo lo que necesitas por ahora. 💛</p>
+  <p id="s3-closing-note" data-en style="display:none;color:var(--gold-soft);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;margin-top:30px;">Perfect. Enjoy your Trecena: that's everything you need for now. 💛</p>
 </section>
 </section>
 
